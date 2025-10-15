@@ -27,6 +27,8 @@ const uint32_t PERIOD = 500; // 2 Hz
 const uint32_t START_PERIOD = 125; // 8 HZ
 bool START_UP = true;
 
+// speed multiplier
+float speed_multiplier = 3.5;
 void setup() {
 
   // Serial debugging
@@ -80,6 +82,9 @@ void loop() {
 void sendMotorUpdate(bool en, bool dir, float speed, float motor_run) {
   // create byte buffer based on data we want to send
   
+  // update speed based on multiplier
+  speed = speed * speed_multiplier;
+
   // 2 flags + 2 floats = 10 bytes
   uint8_t buf[2 + sizeof(speed) + sizeof(motor_run)];
   
