@@ -1,0 +1,2 @@
+SECRET_OPTIONAL_PASS = 54mejSdEarVR;
+SECRET_SSID = umd-iot;
